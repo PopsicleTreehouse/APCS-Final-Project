@@ -19,15 +19,16 @@ public class main{
     URL url;
     JSONObject obj = new JSONObject();
 
-    public static void main() {
+    public static void main(String[] args) throws Exception{
         // API Key is : 9e32e1c117e9206264ef7c63453dca84
         URL url = new URL("https://financialmodelingprep.com/api/v3/profile/TSLA?apikey=9e32e1c117e9206264ef7c63453dca84");
         
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
-
+            for (String line; (line = reader.readLine()) != null;) {
+                System.out.println(line);
+            }
         }
 
     }
     
 }
-// test
