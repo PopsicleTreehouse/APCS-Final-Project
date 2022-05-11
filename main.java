@@ -18,8 +18,6 @@ import org.json.simple.parser.JSONParser;
 
 public class main{
     private URL url;
-    private String value;
-    private String key;
 
     public static void main(String[] args) throws Exception{
         int splitter = 0;
