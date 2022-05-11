@@ -17,19 +17,25 @@ import org.json.simple.parser.JSONParser;
 
 
 public class main{
-    URL url;
-    JSONObject obj = new JSONObject();
+    private URL url;
+    private JSONObject obj = new JSONObject();
+    private String value;
+    private String key;
 
     public static void main(String[] args) throws Exception{
+        int splitter =0;
+        String key = "";
+        String value = "";
         // API Key is : 9e32e1c117e9206264ef7c63453dca84
-        String profile_url = new String("https://financialmodelingprep.com/api/v3/profile/TSLA?apikey=9e32e1c117e9206264ef7c63453dca84");
-        
-        JSONParser parser = new JSONParser();
         URL url = new URL("https://financialmodelingprep.com/api/v3/profile/TSLA?apikey=9e32e1c117e9206264ef7c63453dca84");
 
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
         for (String line; (line = reader.readLine()) != null;) {
-            System.out.println("Hi");
+            splitter = line.indexOf(":");
+            key = line.substring(0, splitter);
+            value = line.substring(splitter);
+            StockEvent x = new StockEvent(key, value);
+            
         System.out.println(line);
   }
 }
