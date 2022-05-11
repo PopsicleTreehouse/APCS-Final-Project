@@ -27,10 +27,10 @@ public class main{
         JSONParser parser = new JSONParser();
         URL url = new URL("https://financialmodelingprep.com/api/v3/profile/TSLA?apikey=9e32e1c117e9206264ef7c63453dca84");
 
-try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
-    for (String line; (line = reader.readLine()) != null;) {
-        System.out.println("Hi");
-    System.out.println(line);
+    try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
+        for (String line; (line = reader.readLine()) != null;) {
+            System.out.println("Hi");
+        System.out.println(line);
   }
 }
 catch(Exception e){
