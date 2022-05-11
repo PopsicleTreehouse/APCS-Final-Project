@@ -4,7 +4,8 @@ public class StockEvent{
     private String key;
     private String value;
 
-public StockEvent(){
+public StockEvent(String s){
+    key=s; 
     
 }
 
