@@ -13,6 +13,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
 
 
 public class main{
@@ -21,19 +22,19 @@ public class main{
 
     public static void main(String[] args) throws Exception{
         // API Key is : 9e32e1c117e9206264ef7c63453dca84
-        URL profile_url = new URL("https://financialmodelingprep.com/api/v3/profile/TSLA?apikey=9e32e1c117e9206264ef7c63453dca84");
+        String profile_url = new String("https://financialmodelingprep.com/api/v3/profile/TSLA?apikey=9e32e1c117e9206264ef7c63453dca84");
         
-        JSONParser parser = new JSONParser;
+        JSONParser parser = new JSONParser();
         
-        Scanner scan = new Scanner(Systen.in);
-        System.out.println("What would you like to look at?")
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What would you like to look at?");
         String input = scan.nextLine();
         
         try{
-            Object obj = parser.parse(s);
+            Object obj = parser.parse(profile_url);
             JSONArray array = (JSONArray)obj;
 
-            for(int i=0; i<array.length(); i++){
+            for(int i=0; i<array.size(); i++){
                 if(array.get(i).equals(input)){
                     // idrk what to do here
                 }
