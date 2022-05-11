@@ -37,6 +37,7 @@ public class main{
             
             System.out.println(line);
     }
+}
     catch(Exception e){
         e.printStackTrace();
     }
