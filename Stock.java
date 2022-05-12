@@ -1,4 +1,6 @@
-public class Stock {
-    private double price;
+import java.util.ArrayList;
+
+public class Stock extends api{
+    private ArrayList<String> list;
      
 }
