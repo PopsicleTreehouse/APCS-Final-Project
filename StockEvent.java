@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
-public class StockEvent extends api{
+public class StockEvent extends Stock{
     private String key;
     private String value;
     private static URL url;
