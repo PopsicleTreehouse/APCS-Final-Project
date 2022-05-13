@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Stock extends api{
+public class Stock {
     private ArrayList<String> list;
-     
+
 }
