@@ -19,21 +19,23 @@ import org.json.simple.parser.JSONParser;
 public class api{
     static String stringUrl = "";
 
-    public static void api(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception{
 
         // API Key is : 9e32e1c117e9206264ef7c63453dca84
         JSONParser parser = new JSONParser();
 
         Scanner scan = new Scanner(System.in);
         System.out.print("What stock would you like?");
-        String stockInput = scan.nextLine();
+        String ticker = scan.nextLine();
+        // Ticker is the name of the stock ex: AAPL, MSFT, F, TSLA
 
-        stringUrl = "https://financialmodelingprep.com/api/v3/profile/" + stockInput + "?apikey=9e32e1c117e9206264ef7c63453dca84";
+        stringUrl = "https://financialmodelingprep.com/api/v3/profile/" + ticker + "?apikey=9e32e1c117e9206264ef7c63453dca84";
         //URL url = new URL(stringUrl);
 
         System.out.print("What would you like to look at?");
         String keyInput = scan.nextLine();
-        StockEvent.findInputValue(keyInput);
+        StockEvent stockWithKey = new StockEvent(keyInput);
+
 
 
 

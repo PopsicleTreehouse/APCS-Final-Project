@@ -16,6 +16,11 @@ public StockEvent(String key, String value) throws Exception{
     this.value = value;
     url = new URL(api.stringUrl);
 }
+public StockEvent(String key) throws Exception{
+    this.key = key;
+    this.value = findInputValue(key);;
+    url = new URL(api.stringUrl);
+}
 
 public String getKey(){
     return key;
@@ -25,7 +30,15 @@ public String getValue(){
     return value;
 }
 
-public static String findInputValue(String x){
+public void setKey(String key){
+    this.key = key;
+}
+
+public void setValue(String value){
+    this.value = value;
+}
+
+public String findInputValue(String x){
         int splitter = 0;
         String key = "";
         String value = "";
@@ -33,10 +46,12 @@ public static String findInputValue(String x){
     
     try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
         for (String line; (line = reader.readLine()) != null;) {
-            splitter = line.indexOf("price");
+            splitter = line.indexOf(":");
             key = line.substring(0, splitter);
+            if()
             value = line.substring(splitter+1);
-            StockEvent event = new StockEvent(key, value);
+            this.setValue(value);
+            
 
             System.out.println(splitter);
 
