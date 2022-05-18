@@ -52,4 +52,8 @@ public class StockEvent {
         return null;
     }
 
+    public void addFavorite(){
+        
+    }
+
 }
