@@ -4,34 +4,10 @@ import java.util.*;
 
 public class StockAPI {
 
-<<<<<<< HEAD
     public void start(){
         String options = new String("0 - price, 1 - volAvg, 2 - mktCap, 3 - range, 4 - ceo");
         Scanner scan = new Scanner(System.in);
 
-=======
-    public class StockAPI()[
-        ArrayList<StockEvent> favorites = new ArrayList()<>;
-
-
-    ]
-
-
-    public void loop(){
-        Scanner scan = new Scanner(System.in);
-        //String options = new String("0 - Price, 1 - Volume Average, 2 - Market Cap, 3 - Range, 4 - CEO");
-        System.out.println("Start/Qiuit | y/n");
-        String gate = scan.nextLine();
-        boolean bool = true;
-        if(gate == "start"){
-            while (bool == true){
-                this.
-            }
-        }
-        
-        String play = scan.nextLine();
-        if()
->>>>>>> 30aad985f8675417732b7987060c77e1fd790ff1
         try {
             
             System.out.print("What stock would you like? ");
