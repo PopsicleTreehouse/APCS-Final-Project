@@ -39,13 +39,13 @@ public class StockEvent {
         this.value = value;
     }
 
-    public String findInputValue(String parameter) {
+    public String findInputValue(String option, URL url) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(reader);
             JSONArray array = (JSONArray) obj;
             JSONObject dict = (JSONObject) array.get(0);
-            return dict.get(parameter).toString();
+            return dict.get(option).toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class StockEvent {
     }
 
     public void addFavorite(){
-        
+        this.add
     }
 
 }

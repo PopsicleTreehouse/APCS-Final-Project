@@ -5,7 +5,7 @@ import java.util.*;
 public class StockAPI {
 
     public void start(){
-        String options = new String("0 - price, 1 - volAvg, 2 - mktCap, 3 - range, 4 - ceo");
+        String options = new String("0 - price, 1 - volAvg, 2 - mktCap, 3 - range, 4 - ceo OR 5 - add stock to Watchlist (addWL), 6 - add stock to Portfolio (addPort)");
         Scanner scan = new Scanner(System.in);
 
         try {
@@ -15,14 +15,21 @@ public class StockAPI {
             URL url = new URL("https://financialmodelingprep.com/api/v3/profile/" + ticker
                     + "?apikey=9e32e1c117e9206264ef7c63453dca84");
             System.out.println("What would you like to do with this stock? ");
-            System.out.println("The options are: " + options + "OR  5 - you can set this stock to your favorite (type 'set').");
+            System.out.println("The options are: " + options);
             String keyInput = scan.nextLine();
-            if(!keyInput.equals("set")){
+            if(!keyInput.equals("addWL")){
                 StockEvent stockWithKey = new StockEvent(keyInput, url);
                 System.out.println(stockWithKey.getValue());
             }
-            else if(keyInput.equals("set")){
-                ticker.addFavorite();
+            else if(keyInput.equals("addWL")){
+                Stock stock = new Stock(ticker, url);
+                addWatchlistStock(stock);
+                System.out.println("Done");
+            }
+            else if(keyInput.equals("addPort")){
+                Stock stock = new Stock(ticker, url);
+                addPortfolioStock();
+                System.out.println("Done");
             }
             
 
