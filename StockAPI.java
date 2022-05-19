@@ -21,7 +21,7 @@ public class StockAPI {
                     + "?apikey=9e32e1c117e9206264ef7c63453dca84");
 
             System.out.println("What would you like to do with this stock? ");
-            System.out.println("The options are: " + options);
+            System.out.println("The options are: " + options + options1);
             String keyInput = scan.nextLine();
 
             if(!keyInput.equals("addWL") | !keyInput.equals("addPort")){
@@ -30,12 +30,12 @@ public class StockAPI {
             }
             else if(keyInput.equals("addWL")){
                 Stock stock = new Stock(ticker, url);
-                user.addWatchlistStock(stock);
+                addWatchlistStock(stock);
                 System.out.println("Done");
             }
             else if(keyInput.equals("addPort")){
                 Stock stock = new Stock(ticker, url);
-                user.addPortfolioStock(stock);
+                addPortfolioStock(stock);
                 System.out.println("Done");
             }
             
