@@ -14,7 +14,7 @@ public class StockEvent {
         this.url = url;
         this.key = key;
         if (value == null)
-            this.value = findInputValue(key);
+            this.value = findInputValue(key, url);
         else
             this.value = value;
     }
@@ -52,8 +52,5 @@ public class StockEvent {
         return null;
     }
 
-    public void addFavorite(){
-        this.add
-    }
 
 }
