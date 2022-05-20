@@ -7,8 +7,10 @@ public class User extends StockAPI{
     private String password;
 
     public User(String email, String password){
-        ArrayList<Stock> watchlist = new ArrayList();
-        ArrayList<Stock> portfolio = new ArrayList();
+        this.email = email;
+        this.password = password;
+        watchlist = new ArrayList<Stock>();
+        portfolio = new ArrayList<Stock>();
     }
 
     public void setEmail(String email){
