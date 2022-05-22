@@ -5,7 +5,7 @@ import java.util.*;
 
 public class StockAPI {
 
-    public void start(){
+    public void start() {
         String options = new String("0 - price, 1 - volAvg, 2 - mktCap, 3 - range, 4 - ceo.  ");
         String options1 = new String("OR 5 - add stock to your Watchlist, 6 - add stock to your Portfolio.");
         Scanner scan = new Scanner(System.in);
@@ -24,66 +24,25 @@ public class StockAPI {
             System.out.println("What would you like to do with this stock? ");
             System.out.println("The options are: " + options + options1);
             String keyInput = scan.nextLine();
-            switch(keyInput){
-                case "0":
-                    StockEvent stockWithKey = new StockEvent("price", url);
-                    System.out.println(stockWithKey.getValue());
-                    break;
-                case "1":
-                    StockEvent stockWithKey1 = new StockEvent("volAvg", url);
-                    System.out.println(stockWithKey1.getValue());
-                    break;
-                case "2":
-                    StockEvent stockWithKey2 = new StockEvent("mktCap", url);
-                    System.out.println(stockWithKey2.getValue());
-                    break;
-                case "3":
-                    StockEvent stockWithKey3 = new StockEvent("range", url);
-                    System.out.println(stockWithKey3.getValue());
-                    break;
-                case "4":
-                    StockEvent stockWithKey4 = new StockEvent("ceo", url);
-                    System.out.println(stockWithKey4.getValue());
-                    break;
-                case "5":
-                    Stock stock = new Stock(ticker, url);
+            int index = Integer.parseInt(keyInput);
+            if (index <= 4) {
+                String[] keys = { "price", "volAvg", "mktCap", "range", "ceo" };
+                StockEvent event = new StockEvent(keys[index], url);
+                System.out.println(event.getValue());
+            } else {
+                Stock stock = new Stock(ticker, url);
+                if (index == 5)
                     user.addWatchlistStock(stock);
-                    System.out.println("Done");
-                    System.out.println(user.getWatchlist().get(0));
-                    break;
-                case "6":
-                    Stock stock1 = new Stock(ticker, url);
-                    user.addWatchlistStock(stock1);
-                    System.out.println("Done");
-                    break;
-                    
-
+                else if (index == 6)
+                    user.addPortfolioStock(stock);
+                System.out.println("done!");
             }
-
-            // if(!keyInput.equals("addWL") | !keyInput.equals("addPort")){
-            //     StockEvent stockWithKey = new StockEvent(keyInput, url);
-            //     System.out.println(stockWithKey.getValue());
-            // }
-            // else if(keyInput.equals("addWL")){
-            //     Stock stock = new Stock(ticker, url);
-            //     //addWatchlistStock(stock);
-            //     System.out.println("Done");
-            // }
-            // else if(keyInput.equals("addPort")){
-            //     Stock stock = new Stock(ticker, url);
-            //     //addPortfolioStock(stock);
-            //     System.out.println("Done");
-            // }
-            
-
-            //System.out.print(url);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
-    public User login(){
+    public User login() {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Enter login info: ");
@@ -94,32 +53,29 @@ public class StockAPI {
         return new User(email, pass);
     }
 
-    public void loop(){
+    public void loop() {
         Scanner scan = new Scanner(System.in);
-        
+
         System.out.println("Would you like to start? | y/n");
         String play = scan.nextLine();
 
         boolean start = false;
-        if(play.equals("y")){
+        if (play.equals("y")) {
             start = true;
         }
-        
-        while(start == true){
+
+        while (start == true) {
             this.start();
             System.out.println("Go again? | y/n");
             play = scan.nextLine();
-            if(play.equals("y")){
+            if (play.equals("y")) {
                 continue;
-            }
-            else{
+            } else {
                 start = false;
             }
 
-
         }
         System.out.println("Thanks for using Nigel and Nick's Stock API!");
-        
 
     }
 
@@ -127,6 +83,6 @@ public class StockAPI {
         StockAPI api = new StockAPI();
         User user = new User("np@gmail.com", "1234");
         api.loop();
-        
+
     }
 }
